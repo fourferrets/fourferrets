@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Ferrets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            color: #000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-behavior: smooth; 
+        }
+
+        header {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            flex-wrap: wrap;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul.left-links {
+            margin-right: auto;
+        }
+
+        nav ul.right-links {
+            margin-left: auto;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 40px;
+            left: 0;
+            padding: 10px;
+            flex-direction: column;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            text-decoration: underline;
+        }
+
+        .logo-container {
+            margin-top: 70px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #000;
+            text-align: center;
+        }
+        
+        .arabic-content {
+            text-align: right;
+            direction: rtl;
+            width: 100%; /* Ensure it takes up the full width */
+            box-sizing: border-box; /* Include padding in the width calculation */
+        }
+        
+
+        .content img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            position: relative;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        .contact-icons a:hover {
+            color: #e57373;
+        }
+
+        #auth-links li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        #auth-links a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        #auth-links a:hover {
+            color: #007bff;
+        }
+
+        .btn {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+
+        .arabic-content h1 {
+            font-size: 32px;
+        }
+
+        .arabic-content h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-left: 20px;
+        }
+
+        .arabic-content p {
+            font-size: 18px;
+        }
+
+        .arabic-content ul {
+            padding-right: 20px;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .arabic-content ul li {
+            list-style-position: inside;
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+
+            .content {
+                padding: 15px;
+                margin-top: 80px; /* Adjust this value as needed */
+            }
+
+            .arabic-content h1 {
+                font-size: 28px;
+            }
+
+            .arabic-content h2 {
+                font-size: 24px;
+            }
+
+            .arabic-content p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul.left-links {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            nav ul.right-links {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            .logo-container {
+                margin-top: 100px; /* Adjust this value as needed */
+            }
+
+            .content {
+                padding: 10px;
+                margin-top: 100px; /* Adjust this value as needed */
+            }
+
+            .arabic-content h1 {
+                font-size: 24px;
+            }
+
+            .arabic-content h2 {
+                font-size: 20px;
+            }
+
+            .arabic-content p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="left-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="locations.html">Locations</a></li>
+                <li><a href="payment.html">Payment</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="home" class="logo-container">
+        <img src="logo-removebg-preview.png" alt="Four Ferrets Logo" class="logo">
+    </div>
+    <div id="content" class="content">
+        <h1>Welcome to Four Ferrets Travel</h1>
+        <div class="arabic-content">
+            <p>الأعمال التجارية التي تهدف إلى المال فقط هي أعمال قصيرة الأمد. هذا هو المبدأ الذي اعتمدته مجموعة فور فيرتس ترافل منذ أن بدأت أعمالها في جمهورية مصر العربية. بالتفاني في العمل الجماعي والالتزام بالتحسين المستمر، أصبحت شركتنا لا تنمو فحسب، بل تنمو بسرعة. ولهذا السبب، يسرنا أن نقدم المرحلة المزدهرة التي وصلت إليها مجموعتنا على مر السنين. بدأنا مكتبنا الأول في القاهرة، مصر، مع 15 فردًا من فريق الشباب الذين يعملون بجد وتفانٍ على مدار الساعة لبناء أساس قوي لمستقبل مالي مزدهر.</p>
+            <p>نحن لا ننمو فقط كفريق، ولكننا نلتزم بتقديم أفضل نوعية من الخدمة لعملائنا الكرام. نظراً لأننا اعتمدنا هذه الإدارة، فقد تطور فريق أكثر تفانياً وثورية داخل مجموعتنا، ومن المتوقع أن يصل عدد أعضائنا إلى 1500 عضو بحلول عام 2025.</p>
+            <h2>الأهداف</h2>
+            <img src="jj.jpeg" alt="Goals Image">
+            <p>تلتزم شركة فور فيرتس ترافل بتوفير مستقبل مزدهر، مع مراعاة تقديم أفضل نوعية من الخدمة، والتخطيط لبناء أساس مالي أكثر أماناً وقوة.</p>
+            <h2>التخصص</h2>
+            <img src="ECG.jpeg" alt="Specialization Image">
+            <p>فور فيرتس ترافل متخصصة في تنظيم العمرة العائلية إلى الأراضي المقدسة في مكة المكرمة والمدينة المنورة، باستخدام أفضل استراتيجيات التسويق والمبيعات الحديثة بمساعدة فريق من الخبراء والعاملين المتخصصين في خدمة الآلاف من المسلمين حول العالم الذين يسعون إلى الاستمتاع بزيارة الأراضي المقدسة، حيث يمكن للأباء نقل فرحة الإيمان إلى أطفالهم بينما يقومون بالعمرة ويصلون مع الآلاف من المسلمين الآخرين في المسجد الحرام.</p>
+            <h2>المهمة</h2>
+            <img src="Royal Clock.jpeg" alt="Mission Image">
+            <p>نحن نكافح دائماً للحفاظ على مكانتنا كمجموعة مالية رائدة في سوق سريع النمو. مهمتنا هي تقديم تخطيط متطور، وتطوير لا هوادة فيه، وتسويق ثوري، ورضا خدمة لا يمكن إنكاره.</p>
+            <p>عميلنا العزيز من خلال الانضمام إلى برامجنا لمدة عامين أو أكثر، سيتمتع العميل بإقامة لمدة سبع أيام وست ليالي في فنادقنا في مكة المكرمة، بالإضافة إلى إقامة في أحد الفنادق الفاخرة الشريكة في المدينة المنورة لمدة ثلاث ليالي أخرى. كما نوفر برامج أخرى متنوعة تناسب جميع الأذواق والاحتياجات.</p>
+            <h2>خدمتنا</h2>
+            <img src="service.jpeg" alt="Services Image">
+            <p>نحن لا نستمتع فقط بخدمة ضيوفنا، بل نعكس أيضًا تراثًا طويلًا من التقاليد والعمل الجاد في جميع فنادقنا في مكة المكرمة، التي تقع على مقربة من الكعبة المشرفة. نقدم عدد غرف كافٍ لتلبية احتياجات عملائنا، مع خدمات فندقية متكاملة، ومركز اتصالات مجهز بأجهزة حديثة واتصالات إنترنت، ومطاعم تقدم المأكولات العربية والدولية. الفنادق مجهزة بالكامل لراحة الضيوف من ذوي الاحتياجات الخاصة.</p>
+            <h2>مميزات عند التعاقد</h2>
+            <img src="Saudi Arabian airlines.jpeg" alt="Benefits Image">
+            <ul>
+                <li>الحصول على تأشيرة العمرة من خلال مكاتبنا على نفقة العميل.</li>
+                <li>نقل مجاني من وإلى المطار في المملكة العربية السعودية عند إصدار التأشيرات من خلال الشركة.</li>
+                <li>خصومات إضافية على النقل الداخلي بالمملكة العربية السعودية بأسعار مخفضة.</li>
+                <li>المساعدة في حجز تذاكر الطيران للذهاب لأداء مناسك العمرة وإعادة تأكيد الحجز للرحلات العودة إلى أرض الوطن.</li>
+            </ul>
+        </div>
+        <a href="terms.html" class="btn"> Terms of Use</a>
+    </div>
+    <footer id="contact" class="footer">
+        <div class="contact-icons">
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/four.ferrets.travels" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:info@fourferrets.net"><i class="fas fa-envelope"></i></a>
+            <a href="phones.html" target="_blank"><i class="fas fa-phone"></i></a>
+            <a href="whatsapp-numbers.html" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

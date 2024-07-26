@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f9f9f9; /* Lighter background color */
+        }
+
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px; /* Increased padding for better spacing */
+        }
+
+        .payment-text {
+            background-color: #ffffff; /* White background for the payment options */
+            border: 1px solid #e0e0e0; /* Light grey border */
+            border-radius: 12px; /* Rounded corners */
+            padding: 20px;
+            margin-bottom: 20px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            text-align: left; /* Align text to the left */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .payment-text img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 10px; /* Space between image and text */
+        }
+
+        .payment-text:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02); /* Slight zoom effect on hover */
+        }
+
+        .payment-button {
+            background-color: #ffffff; /* White background for the payment options */
+            border: 1px solid #e0e0e0; /* Light grey border */
+            border-radius: 12px; /* Rounded corners */
+            padding: 20px;
+            margin-bottom: 20px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .payment-button:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02); /* Slight zoom effect on hover */
+        }
+
+        .payment-button a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0; /* Remove padding */
+            border: none;
+            text-decoration: none;
+        }
+
+        .payment-button img {
+            max-width: 120px; /* Adjusted size for better visuals */
+            height: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .payment-button img:hover {
+            opacity: 0.8; /* Slight opacity change on hover */
+        }
+
+        h1 {
+            margin-top: 20px;
+            color: #333; /* Dark grey color for text */
+        }
+    </style>
+</head>
+<body>
+    <h1>Choose Your Payment Option</h1>
+    <div class="payment-options">
+        <section class="payment-text">
+            <img src="vodafone.png" alt="Vodafone Cash">
+            <p><strong>Vodafone Cash:</strong> 01033221266</p>
+        </section>
+        <section class="payment-text">
+            <img src="instapay.png" alt="Instapay">
+            <p><strong>Account number:</strong> 1403171621966401015</p>
+        </section>
+        <section class="payment-button">
+            <a href="https://www.fawry.com/" target="_blank">
+                <img src="fawry.png" alt="Fawry Pay">
+            </a>
+        </section>
+    </div>
+</body>
+</html>
+
